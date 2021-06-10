@@ -1,0 +1,34 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-I.",
+      "-I./mychar",
+      "-I./include",
+      "-g",
+      "-o",
+      "myconfig.o",
+      "myconfig.c"
+    ],
+    "directory": "/home/sv/ebf/my_config",
+    "file": "/home/sv/ebf/my_config/myconfig.c",
+    "output": "/home/sv/ebf/my_config/myconfig.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-I.",
+      "-I./mychar",
+      "-I./include",
+      "-g",
+      "-o",
+      "mychar/mychar.o",
+      "mychar/mychar.c"
+    ],
+    "directory": "/home/sv/ebf/my_config",
+    "file": "/home/sv/ebf/my_config/mychar/mychar.c",
+    "output": "/home/sv/ebf/my_config/mychar/mychar.o"
+  }
+]
