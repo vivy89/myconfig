@@ -1,1 +1,3 @@
-*.json *.o Configure
+*.json 
+*.o 
+Configure
