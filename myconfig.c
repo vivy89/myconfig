@@ -81,7 +81,7 @@ static void show_process(char *progress, int time, int show_cursor)
 static void table_loading(struct myconfig *cf)
 {
 	char **list = *table;
-	struct config_list *clist;
+	struct config_list *node;
 	int num_list = sizeof(table) / 6 / sizeof(char *);
 	show_process("loading", 3, 0);
 	config_list_init(&cf->list_head);
@@ -90,13 +90,13 @@ static void table_loading(struct myconfig *cf)
 	cf->column = 1;
 	cf->raw_max = num_list;
 	while (num_list --) {
-		clist = (struct config_list *)malloc(sizeof(struct config_list));
-		if (!clist) {
-			perror("\n");
-			exit(-1);
+		node = (struct config_list *)malloc(sizeof(struct config_list));
+		perr(node, "");
+		node->list = list;
+		if (strlen(*list) > 1) {
+			node->column = 1;
 		}
-		clist->list = list;
-		config_list_add(&cf->list_head, clist);
+		config_list_add(&cf->list_head, node);
 		list += 6;
 	}
 	cursor_save();
@@ -320,7 +320,5 @@ int main(int argc, char **argv)
 	table_loading(&myconfig);
 	table_config(&myconfig);
 	table_cursor(&myconfig);
-	int ret = -1;
-	err("sjfiej");
 	return 0;
 }

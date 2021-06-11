@@ -7,8 +7,16 @@
 		exit(-1);	\
 	}	\
 }while(0)
+
 #define err(...)	do{ \
 	if (ret < 0) {	\
+		printf("\033[31merr:"__VA_ARGS__"\033[0m\n"); \
+		exit(-1);	\
+	}	\
+}while(0)
+
+#define perr(ptr, ...)	do{ \
+	if (!ptr) {	\
 		printf("\033[31merr:"__VA_ARGS__"\033[0m\n"); \
 		exit(-1);	\
 	}	\
